@@ -6,6 +6,19 @@ body {
 #video-grid {
     display: flex;
     justify-content: center;
+
+    /* Por defecto crece en row pero aja */
+    flex-direction: row;
+    /* Por defecto solo crece en una linea. 
+       Con esto se crea una nueva de elementos */
+    flex-wrap: wrap;
+    /* La alineación principal. 
+        Space evenly hace que el espacio entre dos items y entre los dordes sea el mismo*/
+    justify-content: space-evenly;
+    /* centralo*/
+    align-items: center;
+    /* el espacio entre filas*/
+    align-content: space-evenly;
 }
 
 video {
@@ -16,22 +29,22 @@ video {
     border-color: alicebluey;
 }
 
-.main{
+.main {
     height: 100vh;
     display: flex;
 }
 
-.main__izquierda{
+.main__izquierda {
     flex: 0.8;
     display: flex;
     flex-direction: column;
 }
 
-.main__derecha{
+.main__derecha {
     flex: 0.2;
 }
 
-.main__videos{
+.main__videos {
     flex-grow: 1;
     background-color: black;
     display: flex;
@@ -40,7 +53,7 @@ video {
     padding: 40px;
 }
 
-.main__controladores{
+.main__controladores {
     display: flex;
     background-color: grey;
     color: aliceblue;
@@ -48,11 +61,11 @@ video {
     padding: 5px;
 }
 
-.main__controladores__bloques{
+.main__controladores__bloques {
     display: flex;
 }
 
-.main__controladores__boton{
+.main__controladores__boton {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,32 +75,32 @@ video {
     cursor: pointer;
 }
 
-.main__controladores__boton:hover{
+.main__controladores__boton:hover {
     background-color: gainsboro;
     color: black;
     border-radius: 5px;
 }
 
-.main__controladores__boton i{
+.main__controladores__boton i {
     color: black;
     font-size: 30px;
 }
 
-.main__derecha{
+.main__derecha {
     display: flex;
     flex-direction: column;
     background-color: gray;
     border-left: 1px solid black;
 }
 
-.main__cabecera{
+.main__cabecera {
     color: aliceblue;
     padding-top: 5px;
     text-align: center;
     font-size: 30px;
 }
 
-.main__mensajes__ventana{
+.main__mensajes__ventana {
     flex-grow: 1;
     overflow-y: auto;
 }
@@ -97,17 +110,18 @@ video {
     display: flex;
 }
 
-.main__mensaje__contenedor input{
+.main__mensaje__contenedor input {
     flex-grow: 1;
     background-color: black;
     border: 2px;
     color: aliceblue;
 }
 
-.mensajes{
+.mensajes {
     list-style: none;
 }
 
-#detener, #silenciar{
+#detener,
+#silenciar {
     color: rgb(255, 238, 0);
 }
