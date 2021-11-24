@@ -1,0 +1,9 @@
+- proyecto con NodeJS -- ya
+- inicializar una vista -- ya
+- crear una sala -- ya
+- poder ver MI video -- ya
+- poder ver video de OTROS
+- diseño bonito
+- mandar mensajes o crear chat
+- mutearse
+- dejar de mostrar video

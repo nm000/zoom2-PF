@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#video-grid {
+    display: flex;
+    justify-content: center;
+}
+
+video {
+    height: 300px;
+    width: 400px;
+    object-fit: cover;
+}
+
+.main{
+    height: 100vh;
+    display: flex;
+}
+
+.main__izquierda{
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+}
+
+.main__derecha{
+    flex: 0.2;
+}
+
+.main__videos{
+    flex-grow: 1;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.main__controladores{
+    display: flex;
+    background-color: grey;
+    color: aliceblue;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.main__controladores__bloques{
+    display: flex;
+}
+
+.main__controladores__boton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+    min-width: 80px;
+    cursor: pointer;
+}
+
+.main__controladores__boton:hover{
+    background-color: gainsboro;
+    color: black;
+    border-radius: 5px;
+}
+
+.main__controladores__boton i{
+    color: black;
+    font-size: 30px;
+}
+
+.main__derecha{
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    border-left: 1px solid black;
+}
+
+.main__cabecera{
+    color: aliceblue;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.main__mensajes__ventana{
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.main__mensaje__contenedor {
+    padding: 30px 20px;
+    display: flex;
+}
+
+.main__mensaje__contenedor input{
+    flex-grow: 1;
+    background-color: black;
+    border: 2px;
+    color: aliceblue;
+}
+
+.mensajes{
+    list-style: none;
+}
+
+#detener, #silenciar{
+    color: rgb(255, 238, 0);
+}
