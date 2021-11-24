@@ -16,6 +16,10 @@
 10) "npm install peer"
 11) incluir la librerí a de peerJs buscando  en Crhome
 12) Buscar FONT AWESOME
+13) git add .
+14) git commit -m "NOMBRE DEL COMMIT"
+15) git push heroku master
+16) heroku ps:scale web=1
 
 
 

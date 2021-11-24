@@ -11,7 +11,9 @@ body {
 video {
     height: 300px;
     width: 400px;
-    object-fit: cover;
+    object-fit: fill;
+    border-style: solid;
+    border-color: alicebluey;
 }
 
 .main{

@@ -4,13 +4,16 @@ const docVideoGrid = document.getElementById('video-grid');
 const myPeer = new Peer(undefined, {
     path: '/peerjs',
     host: '/',
-    port: '443'
+    port: '3000'
 })
 
 let streaming;
+let usuarioID;
 
 const miVideo = document.createElement('video');
 miVideo.muted = true;
+
+const peers = {}
 
 navigator.mediaDevices.getUserMedia({
     video: true,
@@ -45,29 +48,41 @@ navigator.mediaDevices.getUserMedia({
 
     socket.on('createMessage', mensaje => {
         console.log("El servidor mandó: " + mensaje);
-        $("ul").append(`<li class="mensajes"><b>Usuario:</b><br/>${mensaje}</li>`);
+        $("ul").append(`<li class="mensajes"><b>${usuarioID}:</b><br/>${mensaje}</li>`);
         barraScroll();
     })
 
 })
 
+socket.on('user-disconnected', usuarioId =>{
+    if(peers[usuarioId]) {
+        peers[usuarioId].close()
+    }
+})
+
 myPeer.on('open', iD => {
     console.log("ID sala - " + SALA_ID)
     console.log("ID usuario - " + iD);
+    usuarioID = iD;
     socket.emit('join-room', SALA_ID, iD);
 })
 
-function nuevoUsuarioConectado(usuarioId, stream) {
+const nuevoUsuarioConectado = (usuarioId, stream) => {
     console.log("usuario conectado - " + usuarioId)
     const call = myPeer.call(usuarioId, stream)
     const video = document.createElement('video')
     call.on('stream', videoUsuario => {
         aggStreaming(video, videoUsuario);
     })
+    call.on('close', () =>{
+        video.remove()
+    })
+
+    peers[usuarioId] = call;
 }
 
 
-function aggStreaming(video, stream) {
+const aggStreaming = (video, stream) => {
     video.srcObject = stream;
     video.addEventListener('loadedmetadata', () => {
         video.play();
